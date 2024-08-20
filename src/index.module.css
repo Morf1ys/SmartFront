@@ -1,0 +1,24 @@
+.App {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.product {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+img {
+  display: block;
+  margin-top: 10px;
+}
+
+h1 {
+  color: #333;
+}
+
+h2 {
+  color: #555;
+}
