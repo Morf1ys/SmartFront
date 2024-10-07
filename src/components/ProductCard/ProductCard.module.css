@@ -1,0 +1,208 @@
+/* Основний стиль картки */
+.card {
+  width: 260px; /* Ширина картки */
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, height 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  height: 380px; /* Початкова висота картки */
+  /* z-index: 990; */
+}
+
+/* Змінюємо картку при ховері */
+.hovered {
+  height: auto; /* Висота картки залежить від контенту */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 15px 30px rgba(0, 0, 0, 0.1);
+  z-index: 700; /* Змінюємо z-index */
+}
+
+/* Стиль для товарів, яких немає в наявності */
+.outOfStock {
+  opacity: 0.5; /* Робимо картку менш яскравою */
+  pointer-events: none; /* Робимо картку неактивною */
+  background-color: #f0f0f0; /* Відтінок для карток, яких немає в наявності */
+}
+
+/* Плашка "Немає в наявності" */
+.outOfStockLabel {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #e53935;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  z-index: 100;
+}
+
+/* Стиль іконки серця */
+.heartIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: orange;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 2px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  z-index: 700;
+}
+.heartIcon:hover {
+  background-color: rgba(128, 128, 128, 0.173);
+}
+
+/* Контейнер для зображення */
+.imageContainer {
+  width: 100%; /* Контейнер заповнює всю ширину картки */
+  height: 250px; /* Висота контейнера */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  padding: 10px 20px; /* Відступи всередині контейнера */
+}
+
+/* Стиль для зображення */
+.productImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  margin-top: 30px; /* Відступ зверху */
+}
+
+/* Забираємо збільшення зображення при ховері */
+.hovered .productImage {
+  transform: none;
+}
+
+/* Додано стиль для бейджа */
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #ff9800;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Стиль для серця улюбленого */
+.heart-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border-radius: 50%;
+  padding: 6px;
+  cursor: pointer;
+}
+
+/* Інформаційний блок */
+.info {
+  padding: 8px 16px;
+}
+
+.productName {
+  font-size: 15px;
+  font-weight: 500;
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  color: #625c5c;
+  margin: 0;
+  display: -webkit-box; /* Створює блоковий контейнер */
+  -webkit-box-orient: vertical; /* Вертикальна орієнтація */
+  -webkit-line-clamp: 2; /* Обмежує текст двома рядками */
+  overflow: hidden; /* Приховує зайвий текст */
+  text-overflow: ellipsis; /* Додає три крапки в кінці */
+}
+
+.prices {
+  margin: 5px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Вирівнювання по нижньому краю */
+}
+
+.oldPrice {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.newPrice {
+  font-size: 23px;
+  font-weight: 500;
+  color: #e53935;
+}
+
+/* Додаткові деталі продукту */
+.productDetails {
+  font-size: 12px;
+  color: #666;
+  max-height: 0; /* Початкова висота для приховування */
+  overflow: hidden; /* Приховуємо характеристики */
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out,
+    padding 0.3s ease-in-out;
+  opacity: 0; /* Початкова прозорість */
+  padding: 0 16px;
+}
+
+/* Показуємо блок з деталями тільки при ховері */
+.showDetails {
+  max-height: 300px; /* Максимальна висота блоку з характеристиками */
+  opacity: 1; /* Робимо блок видимим */
+  padding: 10px 16px;
+}
+
+/* Стиль для списку характеристик */
+.additionalDetails {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.additionalDetails li {
+  font-size: 12px; /* Зменшений розмір шрифту */
+  color: #333;
+  line-height: 1.4; /* Міжрядковий інтервал */
+}
+
+/* Обмеження кількості рядків */
+.paramItem {
+  font-size: 12px;
+  color: #333;
+  line-height: 1.4;
+  overflow: hidden; /* Приховуємо надлишковий текст */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* Обмежуємо двома рядками */
+}
+
+.moreParams {
+  font-weight: bold;
+  color: #888;
+}
+
+/* Адаптація для мобільних пристроїв */
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+  }
+}

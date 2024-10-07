@@ -1,0 +1,228 @@
+/* src/Header/Header.module.css */
+.header {
+  background-color: #221f1f;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+}
+
+.container {
+  max-width: 1600px;
+  height: 72px;
+  padding: 0px 32px 0px 32px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  gap: 24px;
+}
+
+.modalButton,
+.authButton,
+.cartButton {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.cartButton {
+  padding: 10px;
+  border-radius: 1cap;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+.cartButton:hover {
+  background-color: gray;
+}
+.authButton {
+  padding: 10px;
+  border-radius: 1cap;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+.authButton:hover {
+  background-color: gray;
+}
+.modalButton {
+  /* font-size: 29px; */
+  padding: 10px;
+  border-radius: 1cap;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+.modalButton:hover {
+  background-color: gray;
+}
+
+.logo img {
+  height: auto;
+  width: 150px;
+  padding-bottom: 10px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+.catalogButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 8px 16px;
+  width: 130px;
+  height: 40px;
+  cursor: pointer;
+  background-color: #fff3;
+  transition: background-color 0.3s ease;
+}
+.catalogButton:hover {
+  background-color: gray;
+}
+.category-icon {
+  color: white;
+}
+
+.catalog {
+  font-size: 15px;
+  font-weight: medium;
+  color: white;
+  text-align: center;
+  font-family: inherit;
+}
+.searchBar {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  position: relative;
+}
+.searchInput::placeholder {
+  font-size: 16px;
+  font-weight: medium;
+  font-family: inherit;
+}
+.searchInput {
+  width: 100%;
+  padding: 8px;
+  padding-left: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+  align-items: center;
+}
+.serch-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: gray;
+  pointer-events: none;
+}
+
+.searchButton {
+  border: none;
+  cursor: pointer;
+  background-color: #00a046;
+  transition: background-color 0.3s ease;
+  width: 90px;
+  height: 40px;
+  border-radius: 0 3px 3px 0;
+  color: white;
+  font-size: 14px;
+  font-family: inherit;
+}
+.searchButton:hover {
+  background-color: #44b26f;
+}
+/* .languageSelector {
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+} */
+.languageSelector {
+  outline: none;
+  appearance: none; /* Вимикаємо стандартний вигляд */
+  padding: 10px 5px 5px 5px; /* Паддінги */
+  cursor: pointer; /* Курсор-вказівник */
+  font-size: 16px; /* Розмір шрифту */
+  background-image: url("path_to_your_down_arrow_icon"); /* Шлях до вашої стрілочки */
+  background-repeat: no-repeat; /* Фон не повторюється */
+  background-position: right 10px center; /* Положення фонової картинки */
+  background: none;
+  color: white;
+  border: none;
+  font-size: 16px;
+  font-family: inherit;
+}
+.languageSelector::-ms-expand {
+  display: none; /* Приховуємо стрілку у IE */
+}
+/* ======================================================================== */
+.logo img {
+  height: auto;
+  width: 150px;
+  padding-bottom: 10px;
+}
+
+@media (max-width: 767px) and (min-width: 355px) {
+  .container {
+    gap: 5px;
+    height: 56px;
+    padding: 0px 8px 0px 8px;
+  }
+  .logo img {
+    height: auto;
+    width: 45px;
+    padding-bottom: 10px;
+  }
+  .catalogButton {
+    display: none;
+  }
+  .languageSelector {
+    display: none;
+  }
+  .authButton {
+    display: none;
+  }
+  .searchInput {
+    height: 35px;
+  }
+  .searchButton {
+    height: 35px;
+  }
+  .searchInput::placeholder {
+    font-size: 14px;
+    font-weight: medium;
+    font-family: inherit;
+  }
+  .serch-icon {
+    width: 20px;
+  }
+}
+/* ====================================================== */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .container {
+    gap: 10px;
+    padding: 0px 24px 0px 24px;
+  }
+  .logo img {
+    height: auto;
+    width: 55px;
+    padding-bottom: 10px;
+  }
+  .languageSelector {
+    display: none;
+  }
+  .catalogButton {
+    display: none;
+  }
+}

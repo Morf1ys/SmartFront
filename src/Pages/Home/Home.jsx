@@ -1,9 +1,10 @@
 // src/pages/Home/Home.jsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import CategoryList from '../../CategoryList/CategoryList';
-import ProductList from '../../ProductList/ProductList';
+import CategoryList from '../../components/CategoryList/CategoryList';
+import ProductList from '../../components/ProductList/ProductList';
 import styles from './Home.module.css';
+import Header from '../../components/Header/Header';
 
 export default function Home() {
   const [products, setProducts] = useState({});
@@ -39,6 +40,11 @@ export default function Home() {
   }, []);
 
   return (
+    
+       <div className={styles.home}>
+      <Header />
+      {/* Далі йде основний контент сторінки */}
+    
     <div className={styles.home}>
       <h1>Product Categories</h1>
       <CategoryList 
@@ -53,6 +59,7 @@ export default function Home() {
       ) : (
         <p>Please select a category to view products.</p>
       )}
-    </div>
+      </div>
+      </div>
   );
 }

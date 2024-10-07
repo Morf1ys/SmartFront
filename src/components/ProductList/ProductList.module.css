@@ -1,0 +1,13 @@
+/* src/ProductList/ProductList.module.css */
+.products {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0px 0px 500px 100px;
+  justify-content: center;
+}
+.product-card {
+  width: calc((100% - 80px) / 5); /* Встановлюємо ширину кожного товару */
+  box-sizing: border-box; /* Враховуємо відступи у ширині */
+}

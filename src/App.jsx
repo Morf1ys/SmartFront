@@ -1,4 +1,4 @@
-// src/App/App.jsx
+
 import React from 'react';
 import Home from './Pages/Home/Home';
 import styles from './Pages/Home/Home.module.css';
