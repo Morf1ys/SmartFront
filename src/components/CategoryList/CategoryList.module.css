@@ -1,20 +1,93 @@
-/* src/CategoryList/CategoryList.module.css */
-.categories {
-  margin-bottom: 20px;
+.categoryList {
+  display: flex;
+  flex-direction: column;
+  width: 262px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.categoryItem {
+  margin-bottom: 5px;
 }
 
 .categoryButton {
-  padding: 10px 15px;
-  margin-right: 10px;
-  margin-bottom: 10px;
+  background: none;
+  border: none;
+  color: #333;
+  padding: 7px;
+  font-size: 15px;
+  text-align: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.categoryButton:hover,
+.subcategoryButton:hover {
   background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  color: #00a046;
+  border-radius: 8px;
+}
+
+.active {
+  font-weight: bold;
+  color: #00a046;
+}
+
+.arrow {
+  transition: transform 0.2s;
+}
+
+.arrowRight::after {
+  content: "▸";
+}
+
+.arrowDown::after {
+  content: "▾";
+}
+
+.subcategoryList {
+  padding-left: 20px;
+  margin-top: 5px;
+}
+
+.subcategoryButton {
+  background: none;
+  border: none;
+  color: #555;
+  padding: 5px;
+  font-size: 14px;
+  text-align: left;
+  width: 100%;
   cursor: pointer;
 }
 
-.categoryButton.active {
-  background-color: #007bff;
-  color: white;
-  border-color: #007bff;
+.subcategoryButton.active {
+  color: #00a046;
+  font-weight: bold;
+}
+.categoryIcon {
+  /* width: 24px; */
+  /* height: 60px; */
+  color: #555;
+  display: flex;
+  align-items: center;
+  font-size: 19px;
+}
+.categoryName {
+  /* font-weight: normal; */
+  font-size: 15px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  /* line-height: 32px; */
+}
+.category-icon-cont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }

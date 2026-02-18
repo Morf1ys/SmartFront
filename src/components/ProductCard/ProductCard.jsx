@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import styles from './ProductCard.module.css';
 import { AiOutlineHeart } from 'react-icons/ai';
+import { LuShoppingCart } from "react-icons/lu";
+import { FaShippingFast } from "react-icons/fa";
+import { AiTwotoneFrown } from "react-icons/ai";
+
 
 export default function ProductCard({ product }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -12,56 +16,62 @@ export default function ProductCard({ product }) {
   const mainImage = productImages[0] || '';
   const hoverImage = productImages[1] || mainImage;
 
-  // Перевірка на наявність товару
-  const isOutOfStock = product.stockQuantity === 0;
+  const isAvailable = product.stockQuantity > 0;
+
+  // Get only the first 5 characteristics
+  const displayedParams = product.params ? Object.entries(product.params).slice(0, 5) : [];
 
   return (
     <div
-      className={`${styles.card} ${isHovered ? styles.hovered : ''} ${isOutOfStock ? styles.outOfStock : ''}`}
+      className={`${styles.card} ${isHovered ? styles.hovered : ''} ${!isAvailable ? styles.outOfStockCard : ''}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Іконка серця у правому верхньому куті */}
       <div className={styles.heartIcon}>
         <AiOutlineHeart size={25} />
       </div>
 
       <div className={styles.imageContainer}>
-        {/* Зображення змінюється при ховері на фото */}
         <img
           src={isHovered ? hoverImage : mainImage}
           alt={product.name}
           className={styles.productImage}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
         />
-        {product.badge && <span className={styles.badge}>{product.badge}</span>}
       </div>
       
       <div className={styles.info}>
         <h3 className={styles.productName}>{product.name}</h3>
-        <div className={styles.prices}>
-          {product.priceOld && (
-            <span className={styles.oldPrice}>{product.priceOld} ₴</span>
-          )}
-          <span className={styles.newPrice}>{product.price} ₴</span>
+    
+
+      <div className={isAvailable ? styles.readyToShip : styles.outOfStock}>
+        {isAvailable ? (
+        <>
+        Готовий до відправки <FaShippingFast className={styles.shippingIcon} />
+        </>
+          ) : (
+        <>Немає у наявності <AiTwotoneFrown className={styles.shippingIcon}/></>
+        )}
+        </div>
+
+        <div className={styles.contPrice}>
+          <div className={styles.prices}>
+            {product.priceOld && <span className={styles.oldPrice}>{product.priceOld} ₴</span>}
+            <span className={styles.newPrice}>{product.price} ₴</span>
+          </div>
+          {isAvailable && <LuShoppingCart size={25} className={styles.LuShoppingCart} />}
         </div>
       </div>
 
-      {/* Відображення статусу наявності товару */}
-      {isOutOfStock ? (
-        <div className={styles.outOfStockLabel}>Немає в наявності</div>
-      ) : (
-        <div className={`${styles.productDetails} ${isHovered ? styles.showDetails : ''}`}>
-          <ul className={styles.additionalDetails}>
-            {product.params && Object.entries(product.params).slice(0, 5).map(([key, value], idx) => (
-              <li key={idx} className={styles.paramItem}>
-                <strong>{key}:</strong> {value}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      {/* The product details section */}
+      <div className={`${styles.productDetails} ${isHovered ? styles.showDetails : ''}`}>
+        <ul className={styles.additionalDetails}>
+          {displayedParams.map(([key, value], idx) => (
+            <li key={idx} className={styles.paramItem}>
+              <strong>{key}:</strong> {value}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

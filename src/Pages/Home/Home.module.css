@@ -7,3 +7,19 @@ h1,
 h2 {
   color: #333;
 }
+.home {
+  max-width: 1540px;
+  margin: 0 auto;
+}
+.choose-categories {
+  padding-top: 90px;
+  font-size: medium;
+  color: #333;
+}
+.cont-main {
+  display: flex;
+}
+.cont-goods {
+  display: flex;
+  flex-direction: column;
+}

@@ -5,7 +5,6 @@ import styles from './ProductList.module.css';
 export default function ProductList({ products }) {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
-  // Функції для обробки наведення
   const handleMouseEnter = (index) => setHoveredIndex(index);
   const handleMouseLeave = () => setHoveredIndex(null);
 
@@ -13,10 +12,9 @@ export default function ProductList({ products }) {
     <div className={styles.products}>
       {products.map((product, index) => (
         <ProductCard
-          className={styles['product-card']}
           key={index}
           product={product}
-          isHovered={hoveredIndex === index} // Передаємо інформацію, чи є картка активною
+          isHovered={hoveredIndex === index}
           onMouseEnter={() => handleMouseEnter(index)}
           onMouseLeave={handleMouseLeave}
         />
